@@ -29,6 +29,7 @@ body {
       width: 200px;
       display: inline-block;
       margin: 10px;
+      text-decoration: none;
   }
    
   br {
