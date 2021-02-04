@@ -1,30 +1,34 @@
 import { Injectable } from '@angular/core';
- 
+
 import { Country } from './country';
-import { COUNTRIES } from './country-data';
- 
+import { COUNTRIES } from './fixtures/country-data';
+
 @Injectable()
 export class CountryService {
- 
-  constructor() { }
- 
+  constructor() {}
+
   getCountries(): Country[] {
     return COUNTRIES;
   }
- 
+
+  getTopCountries(array: any[], property: string) {
+    return array.sort((a, b) => b[property] - a[property]).slice(0, 3);
+  }
+
   getPopulatedCountries(): Country[] {
-    return COUNTRIES.sort((a, b) => b.population! - a.population!).slice(0, 3);
+    return this.getTopCountries(COUNTRIES, 'population');
   }
- 
+
   getLargestCountries(): Country[] {
-    return COUNTRIES.sort((a, b) => b.area! - a.area!).slice(0, 3);
+    return this.getTopCountries(COUNTRIES, 'area');
   }
- 
+
   getGDPCountries(): Country[] {
-    return COUNTRIES.sort((a, b) => b.gdp! - a.gdp!).slice(0, 3);
+    return this.getTopCountries(COUNTRIES, 'gdp');
   }
- 
+
   getCountry(name: string): Country {
-    return COUNTRIES.find(country => country.name === name)!;
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    return COUNTRIES.find((country) => country.name === name)!;
   }
 }

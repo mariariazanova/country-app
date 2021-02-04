@@ -10,17 +10,9 @@ import { CountryDetailComponent } from './country-detail/country-detail.componen
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    AllCountriesComponent,
-    CountryDetailComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule    
-  ],
+  declarations: [AppComponent, HomeComponent, AllCountriesComponent, CountryDetailComponent],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [CountryService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

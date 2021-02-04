@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
- 
+
 import { Country } from '../country';
 import { CountryService } from '../country.service';
- 
+
 @Component({
   selector: 'app-country-detail',
   templateUrl: './country-detail.component.html',
@@ -14,10 +14,10 @@ export class CountryDetailComponent implements OnInit {
   country!: Country;
 
   constructor(
-        private route: ActivatedRoute,
-        private countryService: CountryService,
-        private location: Location
-  ) { }
+    private route: ActivatedRoute,
+    private countryService: CountryService,
+    private location: Location,
+  ) {}
 
   ngOnInit(): void {
     this.getCountry();
@@ -29,6 +29,6 @@ export class CountryDetailComponent implements OnInit {
   }
 
   goBack(): void {
-      this.location.back();
+    this.location.back();
   }
 }
