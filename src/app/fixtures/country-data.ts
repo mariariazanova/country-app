@@ -23,7 +23,7 @@ export const COUNTRIES: Country[] = [
     area: 9596961,
     population: 1403500365,
     currency: 'Renminbi (Yuan)',
-    gdp: 11199145,
+    gdp: 14860145,
   },
   {
     name: 'United States',
@@ -31,7 +31,7 @@ export const COUNTRIES: Country[] = [
     area: 9525067,
     population: 325365189,
     currency: 'United States Dollar',
-    gdp: 18569100,
+    gdp: 20810100,
   },
   {
     name: 'Japan',
@@ -39,6 +39,14 @@ export const COUNTRIES: Country[] = [
     area: 377972,
     population: 12676200,
     currency: 'Yen',
-    gdp: 4939384,
+    gdp: 4915200,
+  },
+  {
+    name: 'India',
+    capital: 'New Delhi',
+    area: 3287263,
+    population: 1352642280,
+    currency: 'Indian rupee',
+    gdp: 2590345,
   },
 ];

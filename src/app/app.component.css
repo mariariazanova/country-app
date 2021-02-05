@@ -5,7 +5,7 @@ nav {
    
   h1 {
     font-family: 'Lato';
-    color: #999;
+    color: #9C27B0;
     text-align: center;
   }
    
@@ -27,7 +27,9 @@ nav {
   }
    
   nav a:hover {
-    background-color: gray;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
   }
    
   nav a.active {

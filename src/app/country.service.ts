@@ -28,7 +28,15 @@ export class CountryService {
   }
 
   getCountry(name: string): Country {
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    return COUNTRIES.find((country) => country.name === name)!;
+    return (
+      COUNTRIES.find((country) => country.name === name) || {
+        name: '',
+        capital: '',
+        area: 0,
+        population: 0,
+        currency: '',
+        gdp: 0,
+      }
+    );
   }
 }

@@ -24,7 +24,7 @@ export class CountryDetailComponent implements OnInit {
   }
 
   getCountry(): void {
-    const name: string = this.route.snapshot.paramMap.get('name')!;
+    const name: string = this.route.snapshot.paramMap.get('name') || '';
     this.country = this.countryService.getCountry(name);
   }
 

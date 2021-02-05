@@ -6,6 +6,11 @@
   h2, p {
     font-family: 'Lato';
   }
+
+  h2 {
+    text-align: center;
+    color: #FF5722;
+  }
    
   p {
     font-size: 1.25rem;
