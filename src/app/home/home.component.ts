@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, TemplateRef } from '@angular/core';
 
 import { Country } from '../country';
 import { CountryService } from '../country.service';
@@ -6,14 +6,14 @@ import { CountryService } from '../country.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
   populatedCountries: Country[] = [];
   largestCountries: Country[] = [];
   gdpCountries: Country[] = [];
 
-  constructor(private countryService: CountryService) { }
+  constructor(private countryService: CountryService) {}
 
   ngOnInit(): void {
     this.setPopulatedCountries();
@@ -24,13 +24,12 @@ export class HomeComponent implements OnInit {
   setPopulatedCountries(): void {
     this.populatedCountries = this.countryService.getPopulatedCountries();
   }
- 
+
   setLargestCountries(): void {
     this.largestCountries = this.countryService.getLargestCountries();
   }
- 
+
   setGDPCountries(): void {
     this.gdpCountries = this.countryService.getGDPCountries();
   }
-
 }

@@ -14,6 +14,7 @@ body {
    
   .country-block h4 {
     margin-bottom: 10px;
+    margin-top: 0;
   }
    
   h4 {
@@ -26,10 +27,10 @@ body {
   }
    
   .country-unit {
-      width: 200px;
-      display: inline-block;
-      margin: 10px;
-      text-decoration: none;
+    width: 200px;
+    display: inline-block;
+    margin: 10px;
+    text-decoration: none;
   }
    
   br {
@@ -37,16 +38,17 @@ body {
   }
    
   .country-block {
-      padding: 30px 0;
-      text-align: center;
-      color: white;
-      height: 150px;
-      background-color: #795548;
-      border-radius: 2px;
+    padding: 30px 0;
+    text-align: center;
+    color: white;
+    background-color: #795548;
+    border-radius: 2px;
+    animation: all 2s ease-in-out;
   }
    
   .country-block:hover {
     background-color: #9C27B0;
     cursor: pointer;
     color:white;
+    transform: scale(1.05);
   }

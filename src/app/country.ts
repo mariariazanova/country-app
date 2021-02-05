@@ -1,8 +1,8 @@
 export class Country {
-    name: string | undefined;
-    capital: string | undefined;
-    area: number | undefined;
-    population: number | undefined;
-    currency: string | undefined;
-    gdp: number | undefined;
+  name: string;
+  capital: string;
+  area: number;
+  population: number;
+  currency: string;
+  gdp: number;
 }

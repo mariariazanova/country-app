@@ -9,12 +9,11 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'detail/:name', component: CountryDetailComponent },
-  { path: 'all-countries', component: AllCountriesComponent }
+  { path: 'all-countries', component: AllCountriesComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-
-export class AppRoutingModule { }
+export class AppRoutingModule {}
