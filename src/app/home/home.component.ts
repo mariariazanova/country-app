@@ -11,14 +11,14 @@ import { CountryService } from '../country.service';
 export class HomeComponent implements OnInit {
   populatedCountries: Country[] = [];
   largestCountries: Country[] = [];
-  gdpCountries: Country[] = [];
+  giniCountries: Country[] = [];
 
   constructor(private countryService: CountryService) {}
 
   ngOnInit(): void {
     this.setPopulatedCountries();
     this.setLargestCountries();
-    this.setGDPCountries();
+    this.setGiniCountries();
   }
 
   setPopulatedCountries(): void {
@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
     this.largestCountries = this.countryService.getLargestCountries();
   }
 
-  setGDPCountries(): void {
-    this.gdpCountries = this.countryService.getGDPCountries();
+  setGiniCountries(): void {
+    this.giniCountries = this.countryService.getGiniCountries();
   }
 }

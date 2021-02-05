@@ -25,8 +25,8 @@ export class CountryService {
     return this.getTopCountries(COUNTRIES, 'area');
   }
 
-  getGDPCountries(): Country[] {
-    return this.getTopCountries(COUNTRIES, 'gdp');
+  getGiniCountries(): Country[] {
+    return this.getTopCountries(COUNTRIES, 'gini');
   }
 
   getCountry(name: string): Country | null {
