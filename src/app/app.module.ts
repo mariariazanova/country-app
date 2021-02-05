@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { CountryService } from './country.service';
@@ -11,7 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, AllCountriesComponent, CountryDetailComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [CountryService],
   bootstrap: [AppComponent],
 })
