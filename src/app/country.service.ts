@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Country } from './country';
 import { COUNTRIES } from './fixtures/country-data';
 
+const topQuantity = 3;
+
 @Injectable()
 export class CountryService {
   constructor() {}
@@ -12,7 +14,7 @@ export class CountryService {
   }
 
   getTopCountries(array: any[], property: string) {
-    return array.sort((a, b) => b[property] - a[property]).slice(0, 3);
+    return array.sort((a, b) => b[property] - a[property]).slice(0, topQuantity);
   }
 
   getPopulatedCountries(): Country[] {
@@ -27,16 +29,7 @@ export class CountryService {
     return this.getTopCountries(COUNTRIES, 'gdp');
   }
 
-  getCountry(name: string): Country {
-    return (
-      COUNTRIES.find((country) => country.name === name) || {
-        name: '',
-        capital: '',
-        area: 0,
-        population: 0,
-        currency: '',
-        gdp: 0,
-      }
-    );
+  getCountry(name: string): Country | null {
+    return COUNTRIES.find((country) => country.name === name) || null;
   }
 }

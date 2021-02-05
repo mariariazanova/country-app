@@ -9,7 +9,7 @@ import { CountryService } from '../country.service';
   styleUrls: ['./all-countries.component.css'],
 })
 export class AllCountriesComponent implements OnInit {
-  countries!: Country[];
+  countries: Country[];
 
   constructor(private countryService: CountryService) {}
 
