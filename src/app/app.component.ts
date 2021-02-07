@@ -11,13 +11,18 @@ import { Country } from './country';
 })
 export class AppComponent implements OnInit {
   country: Country | null;
-  countries: Country[] = [];
+ // countries: Country[] = [];
 
   title = 'Fun Facts About Countries';
 
   constructor(private httpService: CountriesInfoService) {}
 
   ngOnInit(): void {
-    this.httpService.getCountiresInfo().subscribe((data) => console.log(data)); //(this.countries = data));
+ /*   this.httpService.getCountiresInfo2().subscribe((data) => {
+      this.countries = data; 
+      console.log(data);  
+      console.log(this.countries); 
+    });*/
+    this.httpService.getCountriesInfo().subscribe((data) => console.log(data)); //(this.countries = data));
   }
 }
