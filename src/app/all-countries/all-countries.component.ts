@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Country } from '../country';
-// import { CountryService } from '../country.service';
 import { CountriesInfoService } from '../countriesInfo.service';
 
 @Component({
@@ -15,11 +14,8 @@ export class AllCountriesComponent implements OnInit {
   constructor(private countryService: CountriesInfoService) {}
 
   ngOnInit(): void {
-    this.countryService.getCountriesInfo().subscribe(data => this.countries=data);
-   // this.setCountries();
+    this.countryService
+      .getCountriesInfo()
+      .subscribe((countries: Country[] = []) => (this.countries = countries));
   }
-/*
-  setCountries(): void {
-    this.countries = this.countryService.getCountiresInfo();
-  }*/
 }

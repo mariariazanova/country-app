@@ -11,51 +11,50 @@ const url = 'https://restcountries.eu/rest/v2/all';
 
 @Injectable()
 export class CountriesInfoService {
-  
+  // private countries: Observable<Country[]> = this.getCountriesInfo();
+
+  countries: Country[] = [];
+
   constructor(private http: HttpClient) {}
-/*
-  getCountiresInfo2(): Observable<any> {
-    return this.http.get(url);
-  }
-*/
+
   getCountriesInfo(): Observable<Country[]> {
-    return this.http.get<Country[]>(url)
-    .pipe(
-      map( data => {
-        return data.map( ( country ) => {
-          return  {
+    return this.http.get<Country[]>(url).pipe(
+      map((data) => {
+        return data.map((country) => {
+          return {
             name: country['name'],
             capital: country['capital'],
             area: country['area'],
             population: country['population'],
             currency: country['currencies'][0].name,
             gini: country['gini'],
-          } ;
-        } );
-      } ),
+            flag: country['flag'],
+            languages: Object.values(country['languages'])
+              .map((el) => Object.values(el).filter((el, index) => index == 2))
+              .toString(),
+          };
+        });
+      }),
     );
   }
-
-  COUNTRIES  = this.getCountriesInfo();
 
   getTopCountries(array: any[], property: string) {
     return array.sort((a, b) => b[property] - a[property]).slice(0, topQuantity);
   }
 
-  getPopulatedCountries(): Country[] {
-    return this.getTopCountries(COUNTRIES, 'population');
+  getPopulatedCountries(array: Country[]) {
+    return this.getTopCountries(array, 'population');
   }
 
-  getLargestCountries(): Country[] {
-    return this.getTopCountries(COUNTRIES, 'area');
+  getLargestCountries(array: Country[]) {
+    return this.getTopCountries(array, 'area');
   }
 
-  getGiniCountries(): Country[] {
-    return this.getTopCountries(COUNTRIES, 'gini');
+  getGiniCountries(array: Country[]) {
+    return this.getTopCountries(array, 'gini');
   }
 
-  getCountry(name: string): Country | null {
-    return COUNTRIES.find((country) => country.name === name) || null;
+  getCountry(array: Country[], name: string): Country | null {
+    return array.find((country) => country.name === name) || null;
   }
-
 }

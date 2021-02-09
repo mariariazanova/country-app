@@ -27,7 +27,8 @@ body {
   }
    
   .country-unit {
-    width: 200px;
+    min-width: 220px;
+    
     display: inline-block;
     margin: 10px;
     text-decoration: none;

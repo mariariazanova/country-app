@@ -7,4 +7,6 @@ export class Country {
   currency: string;
   gdp?: number;
   gini: number;
+  flag: string;
+  languages: string;
 }

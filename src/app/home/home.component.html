@@ -17,10 +17,10 @@
   </ng-container>
   <br>
   <ng-container [ngTemplateOutlet]="countriesInfoBlock"
-    [ngTemplateOutletContext] ="{titleName: 'Three Largest Countries (Area)', countryTypes: largestCountries,  typeofData: 'area',  measurement: 'km2'}">
+    [ngTemplateOutletContext] ="{titleName: 'Three Largest Countries (by area)', countryTypes: largestCountries,  typeofData: 'area',  measurement: 'km2'}">
   </ng-container>
   <br>
   <ng-container [ngTemplateOutlet]="countriesInfoBlock"
-    [ngTemplateOutletContext] ="{titleName: 'Countries with Highest GDP', countryTypes: giniCountries,  typeofData: 'gini',  measurement: ''}">
+    [ngTemplateOutletContext] ="{titleName: 'Countries with the biggest wealth inequality', countryTypes: giniCountries,  typeofData: 'gini',  measurement: ''}">
   </ng-container>
 </div>

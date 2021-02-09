@@ -1,6 +1,6 @@
 .container {
     margin: 0 auto;
-    width: 450px;
+    width: 600px;
   }
    
   h2, p {
@@ -30,6 +30,10 @@
     color: #607D8B;
     font-weight: bold;
     font-family: 'Lato';
+  }
+
+  img {
+    width: 200px;
   }
    
   button {

@@ -9,20 +9,13 @@ import { Country } from './country';
   styleUrls: ['./app.component.css'],
   providers: [CountriesInfoService],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   country: Country | null;
- // countries: Country[] = [];
+  countries: Country[] = [];
 
   title = 'Fun Facts About Countries';
 
-  constructor(private httpService: CountriesInfoService) {}
-
-  ngOnInit(): void {
- /*   this.httpService.getCountiresInfo2().subscribe((data) => {
-      this.countries = data; 
-      console.log(data);  
-      console.log(this.countries); 
-    });*/
-    this.httpService.getCountriesInfo().subscribe((data) => console.log(data)); //(this.countries = data));
+  constructor(private httpService: CountriesInfoService) {
+    this.countries = [];
   }
 }

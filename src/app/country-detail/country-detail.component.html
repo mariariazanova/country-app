@@ -11,11 +11,17 @@
       <span>Population: </span>{{country.population | number}}
     </p>
     <p>
-      <span>GDP: </span>{{country.gdp | number}} USD
+      <span>Gini index: </span>{{country.gini}}
     </p>
     <p>
       <span>Currency: </span>{{country.currency}}
     </p>
+    <p>
+      <span>Languages: </span>{{country.languages}}
+    </p>
+    <p>
+      <span>Flag: </span><img src='{{country.flag}}'>
+    </p>    
     <button (click)="goBack()">Go Back</button>
   </div>
 </div>
