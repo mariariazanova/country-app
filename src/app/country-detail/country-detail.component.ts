@@ -3,7 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Country } from '../country';
+import { GlobalConstants } from '../fixtures/global-constants';
 import { CountriesInfoService } from '../countriesInfo.service';
+
 
 @Component({
   selector: 'app-country-detail',
@@ -21,14 +23,14 @@ export class CountryDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-   // this.getCountry();
     this.countryService.getCountriesInfo().subscribe((result) => {
-      (this.countries = result), this.getCountry();
+      this.countries = result;
+      this.setCountry();
     });
   }
 
-  getCountry(): void {
-    const name: string = this.route.snapshot.paramMap.get('name') || '';
+  setCountry(): void {
+    const name: string = this.route.snapshot.paramMap.get(GlobalConstants.countryInfoName) || '';
     this.country = this.countryService.getCountry(this.countries, name);
   }
 

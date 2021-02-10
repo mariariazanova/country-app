@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Country } from './country';
 import { COUNTRIES } from './fixtures/country-data';
-
-const topQuantity = 3;
+import { GlobalConstants } from './fixtures/global-constants';
 
 @Injectable()
 export class CountryService {
@@ -14,19 +13,21 @@ export class CountryService {
   }
 
   getTopCountries(array: any[], property: string) {
-    return array.sort((a, b) => b[property] - a[property]).slice(0, topQuantity);
+    return array
+      .sort((a, b) => b[property] - a[property])
+      .slice(0, GlobalConstants.numberOfTopCountries);
   }
 
   getPopulatedCountries(): Country[] {
-    return this.getTopCountries(COUNTRIES, 'population');
+    return this.getTopCountries(COUNTRIES, GlobalConstants.countryInfoPopulation);
   }
 
   getLargestCountries(): Country[] {
-    return this.getTopCountries(COUNTRIES, 'area');
+    return this.getTopCountries(COUNTRIES, GlobalConstants.countryInfoArea);
   }
 
   getGiniCountries(): Country[] {
-    return this.getTopCountries(COUNTRIES, 'gini');
+    return this.getTopCountries(COUNTRIES, GlobalConstants.countryInfoGini);
   }
 
   getCountry(name: string): Country | null {

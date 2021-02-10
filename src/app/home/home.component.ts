@@ -13,22 +13,16 @@ export class HomeComponent implements OnInit {
   populatedCountries: Country[] = [];
   largestCountries: Country[] = [];
   giniCountries: Country[] = [];
- // country: Country | null;
   countries: Country[] = [];
 
   constructor(private countryService: CountriesInfoService) {}
 
   ngOnInit(): void {
     this.countryService.getCountriesInfo().subscribe((result) => {
-      (this.countries = result), this.setPopulatedCountries();
-    });
-
-    this.countryService.getCountriesInfo().subscribe((result) => {
-      (this.countries = result), this.setLargestCountries();
-    });
-
-    this.countryService.getCountriesInfo().subscribe((result) => {
-      (this.countries = result), this.setGiniCountries();
+      this.countries = result;
+      this.setPopulatedCountries();
+      this.setLargestCountries();
+      this.setGiniCountries();
     });
   }
 

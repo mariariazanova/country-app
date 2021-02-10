@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CountriesInfoService } from './countriesInfo.service';
 
+import { GlobalConstants } from './fixtures/global-constants';
 import { Country } from './country';
 
 @Component({
@@ -13,7 +14,7 @@ export class AppComponent {
   country: Country | null;
   countries: Country[] = [];
 
-  title = 'Fun Facts About Countries';
+  title = GlobalConstants.TITLE;
 
   constructor(private httpService: CountriesInfoService) {
     this.countries = [];

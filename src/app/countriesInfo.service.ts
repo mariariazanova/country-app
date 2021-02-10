@@ -3,24 +3,20 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+import { GlobalConstants } from './fixtures/global-constants';
 import { Country } from './country';
-
-const topQuantity = 3;
-
-const url = 'https://restcountries.eu/rest/v2/all';
 
 @Injectable()
 export class CountriesInfoService {
-  // private countries: Observable<Country[]> = this.getCountriesInfo();
-
   countries: Country[] = [];
 
   constructor(private http: HttpClient) {}
 
   getCountriesInfo(): Observable<Country[]> {
-    return this.http.get<Country[]>(url).pipe(
+    return this.http.get<Country[]>(GlobalConstants.URL).pipe(
       map((data) => {
         return data.map((country) => {
+          const indexName = Object.keys(Object.values(country['languages'])[0]).indexOf('name');
           return {
             name: country['name'],
             capital: country['capital'],
@@ -30,8 +26,8 @@ export class CountriesInfoService {
             gini: country['gini'],
             flag: country['flag'],
             languages: Object.values(country['languages'])
-              .map((el) => Object.values(el).filter((el, index) => index == 2))
-              .toString(),
+              .map((el) => Object.values(el).filter((el, index) => index == indexName))
+              .join(','),
           };
         });
       }),
@@ -39,19 +35,21 @@ export class CountriesInfoService {
   }
 
   getTopCountries(array: any[], property: string) {
-    return array.sort((a, b) => b[property] - a[property]).slice(0, topQuantity);
+    return array
+      .sort((a, b) => b[property] - a[property])
+      .slice(0, GlobalConstants.numberOfTopCountries);
   }
 
   getPopulatedCountries(array: Country[]) {
-    return this.getTopCountries(array, 'population');
+    return this.getTopCountries(array, GlobalConstants.countryInfoPopulation);
   }
 
   getLargestCountries(array: Country[]) {
-    return this.getTopCountries(array, 'area');
+    return this.getTopCountries(array, GlobalConstants.countryInfoArea);
   }
 
   getGiniCountries(array: Country[]) {
-    return this.getTopCountries(array, 'gini');
+    return this.getTopCountries(array, GlobalConstants.countryInfoGini);
   }
 
   getCountry(array: Country[], name: string): Country | null {
