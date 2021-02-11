@@ -8,5 +8,5 @@ export class Country {
   gdp?: number;
   gini: number;
   flag: string;
-  languages: string;
+  language: string;
 }

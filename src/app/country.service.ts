@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Country } from './country';
 import { COUNTRIES } from './fixtures/country-data';
 import { GlobalConstants } from './fixtures/global-constants';
+import { ConstantsFieldsNames } from './fixtures/constants-fields-names';
 
 @Injectable()
 export class CountryService {
@@ -19,15 +20,15 @@ export class CountryService {
   }
 
   getPopulatedCountries(): Country[] {
-    return this.getTopCountries(COUNTRIES, GlobalConstants.countryInfoPopulation);
+    return this.getTopCountries(COUNTRIES, ConstantsFieldsNames.countryInfoPopulation);
   }
 
   getLargestCountries(): Country[] {
-    return this.getTopCountries(COUNTRIES, GlobalConstants.countryInfoArea);
+    return this.getTopCountries(COUNTRIES, ConstantsFieldsNames.countryInfoArea);
   }
 
   getGiniCountries(): Country[] {
-    return this.getTopCountries(COUNTRIES, GlobalConstants.countryInfoGini);
+    return this.getTopCountries(COUNTRIES, ConstantsFieldsNames.countryInfoGini);
   }
 
   getCountry(name: string): Country | null {

@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { GlobalConstants } from './fixtures/global-constants';
+import { ConstantsFieldsNames } from './fixtures/constants-fields-names';
+import { UrlConstants } from './fixtures/url-constants';
 import { Country } from './country';
 
 @Injectable()
@@ -13,21 +15,18 @@ export class CountriesInfoService {
   constructor(private http: HttpClient) {}
 
   getCountriesInfo(): Observable<Country[]> {
-    return this.http.get<Country[]>(GlobalConstants.URL).pipe(
+    return this.http.get<Country[]>(UrlConstants.url).pipe(
       map((data) => {
         return data.map((country) => {
-          const indexName = Object.keys(Object.values(country['languages'])[0]).indexOf('name');
           return {
             name: country['name'],
             capital: country['capital'],
             area: country['area'],
             population: country['population'],
-            currency: country['currencies'][0].name,
+            currency: country['currencies'].map((el: { name: string }) => el.name).join(', '),
             gini: country['gini'],
             flag: country['flag'],
-            languages: Object.values(country['languages'])
-              .map((el) => Object.values(el).filter((el, index) => index == indexName))
-              .join(','),
+            language: country['languages'].map((el: { name: string }) => el.name).join(', '),
           };
         });
       }),
@@ -41,15 +40,15 @@ export class CountriesInfoService {
   }
 
   getPopulatedCountries(array: Country[]) {
-    return this.getTopCountries(array, GlobalConstants.countryInfoPopulation);
+    return this.getTopCountries(array, ConstantsFieldsNames.countryInfoPopulation);
   }
 
   getLargestCountries(array: Country[]) {
-    return this.getTopCountries(array, GlobalConstants.countryInfoArea);
+    return this.getTopCountries(array, ConstantsFieldsNames.countryInfoArea);
   }
 
   getGiniCountries(array: Country[]) {
-    return this.getTopCountries(array, GlobalConstants.countryInfoGini);
+    return this.getTopCountries(array, ConstantsFieldsNames.countryInfoGini);
   }
 
   getCountry(array: Country[], name: string): Country | null {

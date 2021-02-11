@@ -14,7 +14,7 @@ export class AppComponent {
   country: Country | null;
   countries: Country[] = [];
 
-  title = GlobalConstants.TITLE;
+  title = GlobalConstants.title;
 
   constructor(private httpService: CountriesInfoService) {
     this.countries = [];
