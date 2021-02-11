@@ -8,6 +8,7 @@ export const COUNTRIES: Country[] = [
     population: 144463451,
     currency: 'Russian Ruble',
     gdp: 1283162,
+    gini: 25,
   },
   {
     name: 'Canada',
@@ -16,6 +17,7 @@ export const COUNTRIES: Country[] = [
     population: 35151728,
     currency: 'Canadian Dollar',
     gdp: 159760,
+    gini: 12,
   },
   {
     name: 'China',
@@ -24,6 +26,7 @@ export const COUNTRIES: Country[] = [
     population: 1403500365,
     currency: 'Renminbi (Yuan)',
     gdp: 14860145,
+    gini: 15,
   },
   {
     name: 'United States',
@@ -32,6 +35,7 @@ export const COUNTRIES: Country[] = [
     population: 325365189,
     currency: 'United States Dollar',
     gdp: 20810100,
+    gini: 25,
   },
   {
     name: 'Japan',
@@ -40,6 +44,7 @@ export const COUNTRIES: Country[] = [
     population: 12676200,
     currency: 'Yen',
     gdp: 4915200,
+    gini: 18,
   },
   {
     name: 'India',
@@ -48,5 +53,6 @@ export const COUNTRIES: Country[] = [
     population: 1352642280,
     currency: 'Indian rupee',
     gdp: 2590345,
+    gini: 17,
   },
 ];

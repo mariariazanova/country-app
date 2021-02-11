@@ -1,8 +1,12 @@
 export class Country {
+  [x: string]: any;
   name: string;
   capital: string;
   area: number;
   population: number;
   currency: string;
-  gdp: number;
+  gdp?: number;
+  gini: number;
+  flag: string;
+  language: string;
 }

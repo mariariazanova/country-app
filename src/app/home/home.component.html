@@ -13,14 +13,14 @@
 
 <div class="container">
   <ng-container [ngTemplateOutlet]="countriesInfoBlock"
-    [ngTemplateOutletContext] ="{titleName: 'Three Most Populated Countries', countryTypes: populatedCountries, typeofData: 'population', measurement: 'People'}">
+    [ngTemplateOutletContext] ="{titleName: 'The most populated countries', countryTypes: populatedCountries, typeofData: 'population', measurement: 'People'}">
   </ng-container>
   <br>
   <ng-container [ngTemplateOutlet]="countriesInfoBlock"
-    [ngTemplateOutletContext] ="{titleName: 'Three Largest Countries (Area)', countryTypes: largestCountries,  typeofData: 'area',  measurement: 'km2'}">
+    [ngTemplateOutletContext] ="{titleName: 'The largest countries (by area)', countryTypes: largestCountries,  typeofData: 'area',  measurement: 'km2'}">
   </ng-container>
   <br>
   <ng-container [ngTemplateOutlet]="countriesInfoBlock"
-    [ngTemplateOutletContext] ="{titleName: 'Countries with Highest GDP', countryTypes: gdpCountries,  typeofData: 'gdp',  measurement: 'USD'}">
+    [ngTemplateOutletContext] ="{titleName: 'Countries with the biggest wealth inequality (by Gini index)', countryTypes: giniCountries,  typeofData: 'gini',  measurement: ''}">
   </ng-container>
 </div>

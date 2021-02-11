@@ -3,29 +3,34 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Country } from '../country';
-import { CountryService } from '../country.service';
+import { FieldsNames } from '../constants/fields-names';
+import { CountriesInfoService } from '../countriesInfo.service';
 
 @Component({
   selector: 'app-country-detail',
   templateUrl: './country-detail.component.html',
-  styleUrls: ['./country-detail.component.css']
+  styleUrls: ['./country-detail.component.css'],
 })
 export class CountryDetailComponent implements OnInit {
   country: Country | null;
+  countries: Country[];
 
   constructor(
     private route: ActivatedRoute,
-    private countryService: CountryService,
+    private countryService: CountriesInfoService,
     private location: Location,
   ) {}
 
   ngOnInit(): void {
-    this.getCountry();
+    this.countryService.getCountriesInfo().subscribe((result) => {
+      this.countries = result;
+      this.setCountry();
+    });
   }
 
-  getCountry(): void {
-    const name: string = this.route.snapshot.paramMap.get('name') || '';
-    this.country = this.countryService.getCountry(name);
+  setCountry(): void {
+    const name: string = this.route.snapshot.paramMap.get(FieldsNames.countryInfoName) || '';
+    this.country = this.countryService.getCountry(this.countries, name);
   }
 
   goBack(): void {
