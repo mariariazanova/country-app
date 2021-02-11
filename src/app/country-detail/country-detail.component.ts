@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Country } from '../country';
-import { FieldsNames } from '../fixtures/fields-names';
+import { FieldsNames } from '../constants/fields-names';
 import { CountriesInfoService } from '../countriesInfo.service';
 
 @Component({

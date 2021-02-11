@@ -3,10 +3,11 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { TitlesAndQuantities } from './fixtures/titles-and-quantities';
-import { FieldsNames } from './fixtures/fields-names';
-import { UrlConstants } from './fixtures/url-constants';
+import { FieldsNames } from './constants/fields-names';
+import { UrlConstants } from './constants/url-constants';
 import { Country } from './country';
+
+let numberOfTopCountries = 5;
 
 @Injectable()
 export class CountriesInfoService {
@@ -19,14 +20,14 @@ export class CountriesInfoService {
       map((data) => {
         return data.map((country) => {
           return {
-            name: country['name'],
-            capital: country['capital'],
-            area: country['area'],
-            population: country['population'],
-            currency: this.getDataFromObject(country['currencies'], 'currency'),
-            gini: country['gini'],
-            flag: country['flag'],
-            language: this.getDataFromObject(country['languages'], 'language'),
+            name: country.name,
+            capital: country.capital,
+            area: country.area,
+            population: country.population,
+            currency: this.getDataFromObject(country.currencies, 'currency'),
+            gini: country.gini,
+            flag: country.flag,
+            language: this.getDataFromObject(country.languages, 'language'),
           };
         });
       }),
@@ -38,9 +39,7 @@ export class CountriesInfoService {
   }
 
   getTopCountries(array: any[], property: string) {
-    return array
-      .sort((a, b) => b[property] - a[property])
-      .slice(0, TitlesAndQuantities.numberOfTopCountries);
+    return array.sort((a, b) => b[property] - a[property]).slice(0, numberOfTopCountries);
   }
 
   getPopulatedCountries(array: Country[]) {

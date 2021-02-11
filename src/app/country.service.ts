@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 
 import { Country } from './country';
 import { COUNTRIES } from './fixtures/country-data';
-import { TitlesAndQuantities } from './fixtures/titles-and-quantities';
-import { FieldsNames } from './fixtures/fields-names';
+import { TitlesAndQuantities } from './constants/titles-and-quantities';
+import { FieldsNames } from './constants/fields-names';
 
 @Injectable()
 export class CountryService {
