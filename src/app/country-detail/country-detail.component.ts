@@ -3,8 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Country } from '../country';
-import { GlobalConstants } from '../fixtures/global-constants';
-import { ConstantsFieldsNames } from '../fixtures/constants-fields-names';
+import { FieldsNames } from '../fixtures/fields-names';
 import { CountriesInfoService } from '../countriesInfo.service';
 
 @Component({
@@ -30,8 +29,7 @@ export class CountryDetailComponent implements OnInit {
   }
 
   setCountry(): void {
-    const name: string =
-      this.route.snapshot.paramMap.get(ConstantsFieldsNames.countryInfoName) || '';
+    const name: string = this.route.snapshot.paramMap.get(FieldsNames.countryInfoName) || '';
     this.country = this.countryService.getCountry(this.countries, name);
   }
 
