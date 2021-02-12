@@ -25,7 +25,7 @@
    
   label {
     display: inline-block;
-    width: 3em;
+    width: 10em;
     margin: .5em 0;
     color: #607D8B;
     font-weight: bold;
@@ -38,6 +38,7 @@
    
   button {
     margin-top: 20px;
+    font-family: Arial;
     background-color: #F44336;
     border: none;
     padding: 5px 10px;
@@ -48,14 +49,6 @@
     font-family: 'Lato';
   }
 
-  a {
-    text-decoration: none;
-    background-color: #F44336;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 20px;
-    cursor: pointer;
-    outline: none;
-    color: white;
-    font-family: 'Lato';
-  }
+  input.ng-touched.ng-invalid{
+    border-color: red;
+   }

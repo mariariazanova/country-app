@@ -21,7 +21,11 @@
     </p>
     <p>
       <span>Flag: </span><img src='{{country.flag}}'>
-    </p>    
+    </p>   
+    <p>
+      <span>{{fieldTitle}} </span>{{value}}
+    </p>     
     <button (click)="goBack()">Go back</button>
+    <button><a routerLink="/detail/:name/form">Add info about this country</a></button>
   </div>
 </div>

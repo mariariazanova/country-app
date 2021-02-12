@@ -14,6 +14,8 @@ import { CountriesInfoService } from '../countriesInfo.service';
 export class CountryDetailComponent implements OnInit {
   country: Country | null;
   countries: Country[];
+  fieldTitle: string;
+  value: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -25,12 +27,24 @@ export class CountryDetailComponent implements OnInit {
     this.countryService.getCountriesInfo().subscribe((result) => {
       this.countries = result;
       this.setCountry();
+      this.setInputValue();
     });
+  /*  this.countryService.getInputValue.valueChanges.subscribe((v: any) => {
+      console.log(v);
+    });*/
   }
 
   setCountry(): void {
     const name: string = this.route.snapshot.paramMap.get(FieldsNames.countryInfoName) || '';
     this.country = this.countryService.getCountry(this.countries, name);
+  }
+
+  setInputValue() {
+    this.value = this.countryService.value;
+    if (this.value) {
+      this.fieldTitle = 'Happiness index :';
+    }
+    console.log(this.value);
   }
 
   goBack(): void {
