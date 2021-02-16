@@ -15,15 +15,18 @@ a {
   h2, h3, h4, p {
     font-family: 'Lato';
     margin: 10px;
+    color: #46150b;
   }
    
   .country-block p {
     margin-top: 0;
     margin-bottom: 0;
+    color: white;
   }
    
   .country-block h4 {
     margin-bottom: 10px;
+    color: white;
   }
    
   h4 {
@@ -31,7 +34,7 @@ a {
     font-size: 1.25rem;
   }
   .container {
-    margin: 0 50px;
+    margin: 0 100px;
     text-align: center;
   }
    
@@ -49,13 +52,14 @@ a {
     padding: 30px 0;
     text-align: center;
     color: white;
-    height: 150px;
-    background-color: #4CAF50;
+    background-color: #ee835e;
     border-radius: 2px;
+    animation: all 2s ease-in-out;
   }
    
   .country-block:hover {
-    background-color: #FF5722;
+    background-color: #9C27B0;
     cursor: pointer;
     color:white;
+    transform: scale(1.05);
   }

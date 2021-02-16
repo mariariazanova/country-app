@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   populatedCountries: Country[] = [];
   largestCountries: Country[] = [];
   giniCountries: Country[] = [];
+  arrayAdditionalCountryInfo: object[];
   countries: Country[] = [];
 
   constructor(private countryService: CountriesInfoService) {}

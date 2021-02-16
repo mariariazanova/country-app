@@ -24,8 +24,10 @@
     </p>   
     <p>
       <span>{{fieldTitle}} </span>{{value}}
-    </p>     
-    <button (click)="goBack()">Go back</button>
-    <button><a routerLink="/detail/:name/form">Add info about this country</a></button>
+    </p>
+    <div class="button-container">   
+      <button (click)="goBack()">Go back</button>
+      <button><a routerLink="/detail/:name/form">Add info about {{country.name}}</a></button>
+    </div>
   </div>
 </div>

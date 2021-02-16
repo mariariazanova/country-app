@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
@@ -15,12 +15,10 @@ let fieldTitle = 'Happiness index';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css'],
 })
-export class FormComponent {
-  // reactiveForm: FormGroup;
-  // country: Country | null;
-  // countries: Country[];
-
-  value: number;
+export class FormComponent implements OnInit {
+  reactiveForm: FormGroup;
+  countries: Country[] = [];
+  value: number | string;
 
   constructor(
     private route: ActivatedRoute,
@@ -30,50 +28,48 @@ export class FormComponent {
   ) {}
 
   title = fieldTitle;
- // reactiveForm: FormGroup;
-  reactiveForm = this.fb.group({ value: [''] });
+  country = this.countryService.countryName;
 
-/*
   ngOnInit(): void {
-    this.initForm;
+    this.initForm();
+    this.countryService.getCountriesInfo().subscribe((result) => {
+      this.countries = result;
+    });
   }
-
 
   initForm() {
-    this.reactiveForm = this.fb.group({ value: [''] });
+    this.findValue();
+    this.reactiveForm = this.fb.group({ value: [this.value] });
   }
-*/
+
+  findValue() {
+    let countryObjectInfo: {
+      [index: string]: any;
+    } = this.countryService.arrayAdditionalCountryInfo.find((country) =>
+      Object.keys(country).includes(this.countryService.countryName),
+    ) || { [this.countryService.countryName]: '' };
+    this.value = countryObjectInfo[this.countryService.countryName];
+  }
+
   send() {
-    //  this.index = this.reactiveForm.value;
-    console.log(this.reactiveForm.value);
     const inputValue = this.reactiveForm.get('value');
-    console.log(inputValue);
     if (inputValue) {
       inputValue.valueChanges.pipe(startWith(this.reactiveForm.value)).subscribe((value) => {
-        // this.value = value;
-        //   this.countryService.value = value;
-        console.log(this.countryService.value);
+        this.value = value.value;
         this.countryService.value = value.value;
-        console.log(this.countryService.value);
+        let countryObjectInfo: {
+          [index: string]: any;
+        } = this.countryService.arrayAdditionalCountryInfo.find((country) =>
+          Object.keys(country).includes(this.countryService.countryName),
+        ) || { [this.countryService.countryName]: '' };
+        countryObjectInfo[this.countryService.countryName] = this.value;
+        this.countryService.arrayAdditionalCountryInfo.push({
+          [this.countryService.countryName]: value.value,
+        });
       });
     }
   }
-/*
-  onSubmit() {
-    console.log(this.reactiveForm.value);
-    const inputValue = this.reactiveForm.get('value');
-    console.log(inputValue);
-    if (inputValue) {
-      inputValue.valueChanges.pipe(startWith(this.reactiveForm.value)).subscribe((value) => {
-       // this.value = value;
-     //   this.countryService.value = value;
-        console.log(this.countryService.value);
-        this.countryService.value = value.value;
-        console.log(this.countryService.value);
-      });
-    }
-  }
-*/
+
   goBack(): void {
     this.location.back();
   }

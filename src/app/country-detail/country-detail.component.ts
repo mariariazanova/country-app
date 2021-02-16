@@ -15,7 +15,7 @@ export class CountryDetailComponent implements OnInit {
   country: Country | null;
   countries: Country[];
   fieldTitle: string;
-  value: number;
+  value: number | string;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,22 +29,28 @@ export class CountryDetailComponent implements OnInit {
       this.setCountry();
       this.setInputValue();
     });
-  /*  this.countryService.getInputValue.valueChanges.subscribe((v: any) => {
-      console.log(v);
-    });*/
   }
 
   setCountry(): void {
     const name: string = this.route.snapshot.paramMap.get(FieldsNames.countryInfoName) || '';
     this.country = this.countryService.getCountry(this.countries, name);
+    this.countryService.countryName = name;
   }
 
   setInputValue() {
-    this.value = this.countryService.value;
+    const countryObjectInfo = this.countryService.arrayAdditionalCountryInfo
+      .reverse()
+      .find((country) => Object.keys(country).includes(this.countryService.countryName));
+
+    if (countryObjectInfo) {
+      this.value = Object.values(countryObjectInfo).toString();
+      console.log(this.value);
+    }
+
     if (this.value) {
       this.fieldTitle = 'Happiness index :';
     }
-    console.log(this.value);
+    this.countryService.arrayAdditionalCountryInfo.reverse();
   }
 
   goBack(): void {
