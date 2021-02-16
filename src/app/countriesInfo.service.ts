@@ -12,8 +12,10 @@ let numberOfTopCountries = 5;
 @Injectable()
 export class CountriesInfoService {
   countries: Country[] = [];
+  country: Country | null;
+  countryName: string | '';
   value: number;
-  //reactiveForm: any;
+  arrayAdditionalCountryInfo: object[] = [];
 
   constructor(private http: HttpClient) {}
 

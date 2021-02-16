@@ -5,16 +5,19 @@ body {
   h2, h3, h4, p {
     font-family: 'Lato';
     margin: 10px;
+    color: #46150b;
   }
    
   .country-block p {
     margin-top: 0;
     margin-bottom: 0;
+    color: white;
   }
    
   .country-block h4 {
     margin-bottom: 10px;
     margin-top: 0;
+    color: white;
   }
    
   h4 {
