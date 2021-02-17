@@ -25,7 +25,7 @@ body {
     font-size: 1.25rem;
   }
   .container {
-    margin: 0 50px;
+    margin: 0 10%;
     text-align: center;
   }
    
@@ -53,6 +53,6 @@ body {
   .country-block:hover {
     background-color: #9C27B0;
     cursor: pointer;
-    color:white;
+    color: #FFFFFF;
     transform: scale(1.05);
   }

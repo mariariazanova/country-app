@@ -15,7 +15,6 @@ export class CountryDetailComponent implements OnInit {
   country: Country | null;
   countries: Country[];
   fieldHappinessIndexTitle: string;
-  fieldHappinessIndexValue: number | string;
 
   constructor(
     private route: ActivatedRoute,
@@ -38,11 +37,13 @@ export class CountryDetailComponent implements OnInit {
   }
 
   setInputValue() {
-    this.countryService.getInputValue(true);
-    this.fieldHappinessIndexValue = this.countryService.value;
+    if (this.country) {
+      this.countryService.getInputValue();
+      this.country.happinessIndex = this.countryService.value;
 
-    if (this.fieldHappinessIndexValue) {
-      this.fieldHappinessIndexTitle = FieldsNames.countryHappinessIndex + ':';
+      if (this.country.happinessIndex) {
+        this.fieldHappinessIndexTitle = FieldsNames.hapinessIndex + ':';
+      }
     }
   }
 

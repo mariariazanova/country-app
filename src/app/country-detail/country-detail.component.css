@@ -1,6 +1,6 @@
 .container {
     margin: 0 auto;
-    width: 600px;
+    width: 40%;
   }
    
   h2, p {
@@ -64,4 +64,10 @@
     outline: none;
     color: #FFFFFF;
     font-family: 'Lato';
+  }
+
+  @media (max-width: 400px) {
+    .container {
+      width: 70%;
+    }
   }

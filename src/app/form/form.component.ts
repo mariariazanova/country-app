@@ -24,7 +24,7 @@ export class FormComponent implements OnInit {
     private fb: FormBuilder,
   ) {}
 
-  title = FieldsNames.countryHappinessIndex;
+  title = FieldsNames.hapinessIndex;
   country = this.countryService.country?.name;
 
   ngOnInit(): void {
@@ -35,12 +35,8 @@ export class FormComponent implements OnInit {
   }
 
   initForm() {
-    this.setValue();
+    this.countryService.getInputValue();
     this.reactiveForm = this.fb.group({ value: [this.countryService.value] });
-  }
-
-  setValue() {
-    this.countryService.value = this.countryService.getInputValue(true);
   }
 
   send() {
@@ -49,7 +45,9 @@ export class FormComponent implements OnInit {
       inputValue.valueChanges.pipe(startWith(inputValue)).subscribe((value) => {
         this.countryService.value = value.value;
         if (this.countryService.country) {
-          this.countryService.getInputValue(false);
+          this.countryService.additionalCountryInfo[
+            this.countryService.country.name
+          ] = this.countryService.value;
         }
       });
     }

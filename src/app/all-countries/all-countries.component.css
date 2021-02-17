@@ -33,23 +33,29 @@ a {
     position: relative;
     font-size: 1.25rem;
   }
+
   .container {
-    margin: 0 100px;
-    text-align: center;
+    margin: 0 10%;
+    text-align: center;   
+  }
+
+  .country-card-container {
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
   }
    
   .country-unit {
     min-width: 220px;
     display: inline-block;
     margin: 10px;
-  }
-   
-  br {
-    clear: both;
+    
   }
    
   .country-block {
     padding: 30px 0;
+    min-height: 130px;
+    margin: auto;
     text-align: center;
     color: #FFFFFF;
     background-color: #EE835E;
@@ -60,6 +66,6 @@ a {
   .country-block:hover {
     background-color: #9C27B0;
     cursor: pointer;
-    color:#FFFFFF;
+    color: #FFFFFF;
     transform: scale(1.05);
   }
