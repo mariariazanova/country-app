@@ -24,7 +24,7 @@ export class FormComponent implements OnInit {
     private fb: FormBuilder,
   ) {}
 
-  title = FieldsNames.hapinessIndex;
+  title = 'Happiness index';
   country = this.countryService.country?.name;
 
   ngOnInit(): void {

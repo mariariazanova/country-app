@@ -65,6 +65,7 @@ export class CountriesInfoService {
     if (this.country) {
       this.value = this.additionalCountryInfo[this.country.name];
       return this.value;
-    } else return null;
+    }
+    return null;
   }
 }
