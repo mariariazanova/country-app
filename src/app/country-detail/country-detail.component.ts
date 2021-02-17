@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 
 import { Country } from '../country';
 import { FieldsNames } from '../constants/fields-names';
+import { TitlesNames } from '../constants/titles-names';
 import { CountriesInfoService } from '../countriesInfo.service';
 
 @Component({
@@ -42,7 +43,7 @@ export class CountryDetailComponent implements OnInit {
       this.country.happinessIndex = this.countryService.value;
 
       if (this.country.happinessIndex) {
-        this.fieldHappinessIndexTitle = 'Happiness index:';
+        this.fieldHappinessIndexTitle = TitlesNames.addInputTitle + ':';
       }
     }
   }

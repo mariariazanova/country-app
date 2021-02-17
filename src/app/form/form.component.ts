@@ -5,6 +5,7 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 
 import { Country } from '../country';
 import { FieldsNames } from '../constants/fields-names';
+import { TitlesNames } from '../constants/titles-names';
 import { CountriesInfoService } from '../countriesInfo.service';
 import { startWith } from 'rxjs/operators';
 
@@ -24,7 +25,7 @@ export class FormComponent implements OnInit {
     private fb: FormBuilder,
   ) {}
 
-  title = 'Happiness index';
+  title = TitlesNames.addInputTitle;
   country = this.countryService.country?.name;
 
   ngOnInit(): void {
