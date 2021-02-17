@@ -1,4 +1,3 @@
-export class TitlesNames {
+export class Titles {
   public static appTitle = 'Fun Facts About Countries';
-  public static addInputTitle = 'Happiness index';
 }

@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { CountriesInfoService } from './countriesInfo.service';
-import { TitlesNames } from './constants/titles-names';
+import { Component } from '@angular/core';
 
+import { CountriesInfoService } from './countriesInfo.service';
+import { Titles } from './constants/titles-names';
 import { Country } from './country';
 
 @Component({
@@ -14,7 +14,7 @@ export class AppComponent {
   country: Country | null;
   countries: Country[] = [];
 
-  title = TitlesNames.appTitle;
+  title = Titles.appTitle;
 
   constructor(private httpService: CountriesInfoService) {
     this.countries = [];
