@@ -37,7 +37,9 @@
             "prefix": "app",
             "style": "kebab-case"
           }
-        ]
+        ],
+        "no-console": 2,
+        "no-eval": 2
       }
     },
     {

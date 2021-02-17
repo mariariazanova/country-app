@@ -2,7 +2,7 @@
   <div *ngIf="country">
     <h2>{{ country.name | uppercase }}</h2>
     <p>
-      <span>Capital: </span>{{country.capital}}</p>
+      <span>Capital: </span>{{country.capital || 'not set'}}</p>
     <p>
       <span>Area: </span>{{country.area | number}} km
       <sup>2</sup>
@@ -11,7 +11,7 @@
       <span>Population: </span>{{country.population | number}}
     </p>
     <p>
-      <span>Gini index: </span>{{country.gini}}
+      <span>Gini index: </span>{{country.gini || 'not known'}}
     </p>
     <p>
       <span>Currency: </span>{{country.currency}}
@@ -23,11 +23,11 @@
       <span>Flag: </span><img src='{{country.flag}}'>
     </p>   
     <p>
-      <span>{{fieldTitle}} </span>{{value}}
+      <span>{{fieldHappinessIndexTitle}} </span>{{fieldHappinessIndexValue}}
     </p>
     <div class="button-container">   
       <button (click)="goBack()">Go back</button>
-      <button><a routerLink="/detail/:name/form">Add info about {{country.name}}</a></button>
+      <button><a routerLink="/detail/{{country.name}}/edit">Add info about {{country.name}}</a></button>
     </div>
   </div>
 </div>

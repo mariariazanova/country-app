@@ -15,18 +15,18 @@ a {
   h2, h3, h4, p {
     font-family: 'Lato';
     margin: 10px;
-    color: #46150b;
+    color: #46150B;
   }
    
   .country-block p {
     margin-top: 0;
     margin-bottom: 0;
-    color: white;
+    color: #FFFFFF;
   }
    
   .country-block h4 {
     margin-bottom: 10px;
-    color: white;
+    color: #FFFFFF;
   }
    
   h4 {
@@ -51,8 +51,8 @@ a {
   .country-block {
     padding: 30px 0;
     text-align: center;
-    color: white;
-    background-color: #ee835e;
+    color: #FFFFFF;
+    background-color: #EE835E;
     border-radius: 2px;
     animation: all 2s ease-in-out;
   }
@@ -60,6 +60,6 @@ a {
   .country-block:hover {
     background-color: #9C27B0;
     cursor: pointer;
-    color:white;
+    color:#FFFFFF;
     transform: scale(1.05);
   }

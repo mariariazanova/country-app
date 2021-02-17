@@ -3,4 +3,5 @@ export class FieldsNames {
   public static countryInfoArea = 'area';
   public static countryInfoPopulation = 'population';
   public static countryInfoGini = 'gini';
+  public static countryHappinessIndex = 'Happiness index';
 }

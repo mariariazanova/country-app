@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'detail/:name', component: CountryDetailComponent },
   { path: 'all-countries', component: AllCountriesComponent },
-  { path: 'detail/:name/form', component: FormComponent },
+  { path: 'detail/:name/edit', component: FormComponent },
 ];
 
 @NgModule({

@@ -4,7 +4,7 @@
       class="country-unit" routerLink="/detail/{{country.name}}">
       <div class="country-block">
         <h4>{{country.name}}</h4>
-        <p>({{country.capital}})</p>
+        <p>({{country.capital || 'not set'}})</p>
     </div>
   </a>
 </div>
