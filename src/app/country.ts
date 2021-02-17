@@ -9,5 +9,5 @@ export class Country {
   gini: number;
   flag: string;
   language: string;
-  additional?: object;
+  happinessIndex?: number;
 }

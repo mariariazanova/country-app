@@ -13,9 +13,8 @@ let numberOfTopCountries = 5;
 export class CountriesInfoService {
   countries: Country[] = [];
   country: Country | null;
-  countryName: string | '';
   value: number;
-  arrayAdditionalCountryInfo: object[] = [];
+  additionalCountryInfo: { [key: string]: number } = {};
 
   constructor(private http: HttpClient) {}
 
@@ -60,5 +59,13 @@ export class CountriesInfoService {
 
   getCountry(array: Country[], name: string): Country | null {
     return array.find((country) => country.name === name) || null;
+  }
+
+  getInputValue() {
+    if (this.country) {
+      this.value = this.additionalCountryInfo[this.country.name];
+      return this.value;
+    }
+    return null;
   }
 }
