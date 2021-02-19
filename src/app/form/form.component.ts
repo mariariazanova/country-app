@@ -10,7 +10,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 export class FormComponent implements OnInit {
   @Input() initialValue: number;
   @Input() inputTitle: string;
-  @Output() FormGroupChange: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
+  @Output() formGroupChange: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
   reactiveForm: FormGroup;
 
   constructor(private location: Location, private fb: FormBuilder) {}
@@ -26,7 +26,7 @@ export class FormComponent implements OnInit {
   send() {
     const inputValue = this.reactiveForm.get('value');
     if (inputValue) {
-      this.FormGroupChange.emit(inputValue.value);
+      this.formGroupChange.emit(inputValue.value);
     }
     this.location.back();
   }

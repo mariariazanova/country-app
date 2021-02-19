@@ -5,7 +5,6 @@ import { Country } from '../country';
 import { CountriesInfoService } from '../countriesInfo.service';
 import { Titles } from '../country-detail/titles';
 
-
 @Component({
   selector: 'app-edit-country-detail',
   templateUrl: './edit-country-detail.component.html',
@@ -21,7 +20,7 @@ export class EditCountryDetailComponent {
   value: number = this.countryService.value;
   fieldTitle: string = Titles.HappinessIndexInputTitle;
 
-  FormGroupChangeEvent(value: any) {
+  formGroupChangeEvent(value: any) {
     this.countryService.value = value;
     if (this.countryService.country) {
       this.countryService.additionalCountryInfo[
