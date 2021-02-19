@@ -8,7 +8,7 @@ import { Titles } from '../country-detail/titles';
 @Component({
   selector: 'app-edit-country-detail',
   templateUrl: './edit-country-detail.component.html',
-  styleUrls: ['./edit-country-detail.component.css'],
+  styleUrls: ['./edit-country-detail.component.scss'],
 })
 export class EditCountryDetailComponent {
   @Output() initialValue: EventEmitter<number> = new EventEmitter<number>();

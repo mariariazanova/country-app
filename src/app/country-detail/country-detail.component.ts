@@ -10,7 +10,7 @@ import { CountriesInfoService } from '../countriesInfo.service';
 @Component({
   selector: 'app-country-detail',
   templateUrl: './country-detail.component.html',
-  styleUrls: ['./country-detail.component.css'],
+  styleUrls: ['./country-detail.component.scss'],
 })
 export class CountryDetailComponent implements OnInit {
   country: Country | null;

@@ -1,30 +1,32 @@
 <div class="container">
   <div *ngIf="country">
     <h2>{{ country.name | uppercase }}</h2>
-    <p *ngIf="country.capital">
-      <span>Capital: </span>{{country.capital}}</p>
-    <p *ngIf="country.area">
-      <span>Area: </span>{{country.area | number}} km<sup>2</sup>
-    </p>
-    <p *ngIf="country.populaton">
-      <span>Population: </span>{{country.population | number}}
-    </p>
-    <p *ngIf="country.gini">
-      <span>Gini index: </span>{{country.gini}}
-    </p>
-    <p>
-      <span>Currency: </span>{{country.currency}}
-    </p>
-    <p>
-      <span>Languages: </span>{{country.language}}
-    </p>
-    <p>
-      <span>Flag: </span><img src='{{country.flag}}'>
-    </p>   
-    <p *ngIf="country.happinessIndex">
-      <span>{{fieldHappinessIndexTitle}} </span>{{country.happinessIndex}}
-    </p>
-    <div class="button-container">   
+    <div class="container__country-detail">
+      <p *ngIf="country.capital">
+        <span>Capital: </span>{{country.capital}}</p>
+      <p *ngIf="country.area">
+        <span>Area: </span>{{country.area | number}} km<sup>2</sup>
+      </p>
+      <p *ngIf="country.populaton">
+        <span>Population: </span>{{country.population | number}}
+      </p>
+      <p *ngIf="country.gini">
+        <span>Gini index: </span>{{country.gini}}
+      </p>
+      <p>
+        <span>Currency: </span>{{country.currency}}
+      </p>
+      <p>
+        <span>Languages: </span>{{country.language}}
+      </p>
+      <p>
+        <span>Flag: </span><img src='{{country.flag}}'>
+      </p>   
+      <p *ngIf="country.happinessIndex">
+        <span>{{fieldHappinessIndexTitle}} </span>{{country.happinessIndex}}
+      </p>
+    </div>
+    <div class="container__button-container">   
       <button (click)="goBack()">Go back</button>
       <button><a routerLink="/detail/{{country.name}}/edit">Edit info about {{country.name}}</a></button>
     </div>

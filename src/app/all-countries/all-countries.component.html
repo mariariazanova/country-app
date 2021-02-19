@@ -1,9 +1,9 @@
 <div class="container">
   <h2>List of all the countries in our database</h2>
-  <div class="country-card-container">
+  <div class="container__country-cards-container">
     <a *ngFor="let country of countries"
-    class="country-unit" routerLink="/detail/{{country.name}}">
-      <div class="country-block">
+    class="container__country-cards-container-item" routerLink="/detail/{{country.name}}">
+      <div class="container__country-cards-container-item-inner">
         <h4>{{country.name}}</h4>
         <p *ngIf="country.capital">({{country.capital}})</p>
       </div>

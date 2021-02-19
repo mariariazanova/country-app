@@ -6,7 +6,7 @@ import { CountriesInfoService } from '../countriesInfo.service';
 @Component({
   selector: 'app-all-countries',
   templateUrl: './all-countries.component.html',
-  styleUrls: ['./all-countries.component.css'],
+  styleUrls: ['./all-countries.component.scss'],
 })
 export class AllCountriesComponent implements OnInit {
   countries: Country[];

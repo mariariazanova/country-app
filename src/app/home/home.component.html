@@ -3,17 +3,19 @@
   let-typeofData= "typeofData" 
   let-measurement="measurement" 
   #countriesInfoBlock>
-  <h2>{{titleName}}</h2>
-  <div class="group">
-    <a *ngFor="let country of countryTypes" 
-      class="country-unit" 
-      routerLink="/detail/{{country.name}}">
-      <div class="country-block">
-        <h4>{{country.name}}</h4>
-        <p>{{country[typeofData] | number}}</p>
-        <p>{{measurement}}</p>
-      </div>
-    </a>
+  <div class="container__country-cards-container">
+    <h2>{{titleName}}</h2>
+    <div class="group">
+      <a *ngFor="let country of countryTypes" 
+        class="container__country-cards-container-item" 
+        routerLink="/detail/{{country.name}}">
+        <div class="container__country-cards-container-item-inner">
+          <h4>{{country.name}}</h4>
+          <p>{{country[typeofData] | number}}</p>
+          <p>{{measurement}}</p>
+        </div>
+      </a>
+    </div>
   </div>
 </ng-template>
 
@@ -26,7 +28,6 @@
       measurement: 'People'
     }">
   </ng-container>
-  <br>
   <ng-container [ngTemplateOutlet]="countriesInfoBlock"
     [ngTemplateOutletContext]="{
       titleName: 'The largest countries (by area)', 
@@ -35,7 +36,6 @@
       measurement: 'km2'
     }">
   </ng-container>
-  <br>
   <ng-container [ngTemplateOutlet]="countriesInfoBlock"
     [ngTemplateOutletContext]="{
       titleName: 'Countries with the biggest wealth inequality (by Gini index)', 

@@ -1,0 +1,28 @@
+@import '../../variables.scss';
+@import '../../mixins.scss';
+
+.container__country-cards-container {
+  @include flex-center;
+
+  &-item {
+    @include card-item;
+
+    &-inner {
+      @include card-item-inner;
+
+      &:hover {
+        background-color: $color2;
+        cursor: pointer;
+        transform: scale(1.05);
+      }
+
+      & p {
+        @include p-in-block;
+      }
+         
+      & h4 {
+        @include h4-in-block;
+      }
+    }
+  }
+}
