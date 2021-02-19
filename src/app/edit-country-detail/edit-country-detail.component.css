@@ -1,0 +1,10 @@
+.container {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  h4, p {
+    font-family: 'Lato';
+    text-align: center;
+    color: #46150B;
+  }

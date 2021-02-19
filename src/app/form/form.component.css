@@ -55,3 +55,9 @@
     color: #FFFFFF;
     font-family: 'Lato';
   }
+
+  button:hover {
+    background-color: #FFFFFF;
+    color: #F44336;
+    border: 1px solid #F44336;
+  }

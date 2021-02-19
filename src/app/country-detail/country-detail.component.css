@@ -56,14 +56,25 @@
 
   a {
     text-decoration: none;
-    background-color: #F44336;
+    color: #FFFFFF;
+ /*   background-color: #F44336;
     border: none;
     padding: 5px 10px;
     border-radius: 20px;
     cursor: pointer;
     outline: none;
-    color: #FFFFFF;
-    font-family: 'Lato';
+    
+    font-family: 'Lato';*/
+  }
+
+  button:hover {
+    background-color: #FFFFFF;
+    color: #F44336;
+    border: 1px solid #F44336;
+  }
+
+  button:hover a {
+    color: #F44336;
   }
 
   @media (max-width: 400px) {
