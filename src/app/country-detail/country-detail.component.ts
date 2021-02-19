@@ -41,7 +41,7 @@ export class CountryDetailComponent implements OnInit {
     if (this.country) {
       this.countryService.getInputValue();
       this.country.happinessIndex = this.countryService.value;
-      
+
       if (this.country.happinessIndex) {
         this.fieldHappinessIndexTitle = Titles.HappinessIndexInputTitle + ':';
       }
