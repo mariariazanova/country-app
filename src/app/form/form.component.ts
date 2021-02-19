@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Location } from '@angular/common';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
@@ -14,39 +13,30 @@ import { startWith } from 'rxjs/operators';
   styleUrls: ['./form.component.css'],
 })
 export class FormComponent implements OnInit {
+  @Input() countryName: string | undefined;
+  @Input() initialValue: number;
+  @Input() inputTitle: string;
+  @Output() onFormGroupChange: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
   reactiveForm: FormGroup;
-  countries: Country[] = [];
 
   constructor(
-    private route: ActivatedRoute,
     private countryService: CountriesInfoService,
     private location: Location,
     private fb: FormBuilder,
   ) {}
-
-  title = Titles.HappinessIndexInputTitle;
-  country = this.countryService.country?.name;
 
   ngOnInit(): void {
     this.initForm();
   }
 
   initForm() {
-    this.countryService.getInputValue();
-    this.reactiveForm = this.fb.group({ value: [this.countryService.value] });
+    this.reactiveForm = this.fb.group({ value: [this.initialValue] });
   }
 
   send() {
     const inputValue = this.reactiveForm.get('value');
     if (inputValue) {
-      inputValue.valueChanges.pipe(startWith(inputValue)).subscribe((value) => {
-        this.countryService.value = value.value;
-        if (this.countryService.country) {
-          this.countryService.additionalCountryInfo[
-            this.countryService.country.name
-          ] = this.countryService.value;
-        }
-      });
+      this.onFormGroupChange.emit(inputValue.value);
     }
   }
 

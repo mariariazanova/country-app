@@ -9,8 +9,10 @@ import { HomeComponent } from './home/home.component';
 import { AllCountriesComponent } from './all-countries/all-countries.component';
 import { CountryDetailComponent } from './country-detail/country-detail.component';
 import { FormComponent } from './form/form.component';
+import { EditCountryDetailComponent } from './edit-country-detail/edit-country-detail.component';
 
 import { AppRoutingModule } from './app-routing.module';
+
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { AppRoutingModule } from './app-routing.module';
     AllCountriesComponent,
     CountryDetailComponent,
     FormComponent,
+    EditCountryDetailComponent,
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, ReactiveFormsModule],
   providers: [CountriesInfoService],
