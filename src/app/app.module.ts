@@ -13,7 +13,6 @@ import { EditCountryDetailComponent } from './edit-country-detail/edit-country-d
 
 import { AppRoutingModule } from './app-routing.module';
 
-
 @NgModule({
   declarations: [
     AppComponent,
