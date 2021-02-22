@@ -4,20 +4,20 @@
 form {
   margin: 0 auto;
   text-align: center;
+  }
 
-  & label {
-    color: #9C27B0;
+  label {
+    color: $block-background-hover;
     font-weight: bold;
     font-size: 1.6rem;
     margin-right: 0.5rem;
   }
 
-  & .button-container {
-    margin: 20px auto;
+  .button-container {
+    margin: 2rem auto;
     text-align: center;
 
     & button {
       @include button;
     }
   }
-} 

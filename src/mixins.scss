@@ -2,19 +2,19 @@
 
 @mixin flex-center {
   display: flex;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
 @mixin h4-in-block {
   margin-top: 0;
-  color: $color4;
+  color: $text-color;
 }
 
 @mixin p-in-block {
   margin-top: 0;
   margin-bottom: 0;
-  color: $color4;
+  color: $text-color;
 }
 
 @mixin card-item {
@@ -28,35 +28,35 @@
   min-height: 13rem;
   margin: auto;
   text-align: center;
-  color: $color4;
-  background-color: $color5;
+  color: $text-color;
+  background-color: $block-background;
   border-radius: 5px;
   animation: all 2s ease-in-out;
 }
 
 @mixin button {
   margin: 1rem;
-  background-color: $color3;
+  background-color: $button-background;
   border: none;
   padding: 1rem;
   border-radius: 0.5rem;
   cursor: pointer;
   outline: none;
-  color: $color4;
+  color: $text-color;
   font-family: 'Lato';
   font-size: 1.6rem;  
 
   a {
-    color: $color4;
+    color: $text-color;
   }
 
   &:hover {
-    background-color: $color4;
-    color: $color3;
-    border: 1px solid $color3;
+    background-color: $text-color;
+    color: $button-background;
+    border: 1px solid $button-background;
 
     & a {
-      color: $color3;
+      color: $button-background;
      }
   }   
 }

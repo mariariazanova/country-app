@@ -3,13 +3,13 @@
   let-typeofData= "typeofData" 
   let-measurement="measurement" 
   #countriesInfoBlock>
-  <div class="container__country-cards-container">
+  <div class="country-cards-container">
     <h2>{{titleName}}</h2>
     <div class="group">
       <a *ngFor="let country of countryTypes" 
-        class="container__country-cards-container-item" 
+        class="country-card"
         routerLink="/detail/{{country.name}}">
-        <div class="container__country-cards-container-item-inner">
+        <div class="inner">
           <h4>{{country.name}}</h4>
           <p>{{country[typeofData] | number}}</p>
           <p>{{measurement}}</p>

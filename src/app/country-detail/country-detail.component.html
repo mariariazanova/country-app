@@ -1,7 +1,7 @@
 <div class="container">
   <div *ngIf="country">
     <h2>{{ country.name | uppercase }}</h2>
-    <div class="container__country-detail">
+    <div class="country-detail">
       <p *ngIf="country.capital">
         <span>Capital: </span>{{country.capital}}</p>
       <p *ngIf="country.area">
@@ -26,7 +26,7 @@
         <span>{{fieldHappinessIndexTitle}} </span>{{country.happinessIndex}}
       </p>
     </div>
-    <div class="container__button-container">   
+    <div class="button-container">   
       <button (click)="goBack()">Go back</button>
       <button><a routerLink="/detail/{{country.name}}/edit">Edit info about {{country.name}}</a></button>
     </div>

@@ -4,12 +4,13 @@
 .container {
   margin: 0 auto;
   width: 40%;
+  }
       
-  &__country-detail {
+  .country-detail {
     text-align: left;
 
     span {
-      color: $color2;
+      color: $block-background-hover;
       font-weight: bold;
       border-radius: 5px;
       width: 25rem;
@@ -20,21 +21,18 @@
     img {
       width: 20rem;
     }
-
   }
 
-  &__button-container {
+  .button-container {
     margin: 0 auto;
     text-align: center;
 
     button {
       @include button;   
-    }
-    
+    }    
   }  
-}  
-   
-  @media (max-width: 400px) {
+     
+  @media (max-width: 40rem) {
     .container {
       width: 70%;
     }
