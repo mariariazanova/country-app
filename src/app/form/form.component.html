@@ -1,0 +1,10 @@
+<form [formGroup]="reactiveForm">
+  <label for="value">{{inputTitle}}:</label>
+  <input type="number" id="value" formControlName="value" /> 
+  <div class="button-container"> 
+    <!--This button avoids saving data by keypress Enter.-->
+    <button type="submit" onclick="return false;" style="display: none" aria-hidden="true"></button> 
+    <button type="submit" (click)="send()" [disabled]="!reactiveForm.valid">Save</button>
+    <button (click)="goBack()">Go back</button>
+  </div>
+</form>

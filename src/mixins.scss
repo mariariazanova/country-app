@@ -1,0 +1,62 @@
+@import './variables.scss';
+
+@mixin flex-center {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@mixin h4-in-block {
+  margin-top: 0;
+  color: $text-color;
+}
+
+@mixin p-in-block {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: $text-color;
+}
+
+@mixin card-item {
+  min-width: 22rem;
+  display: inline-block;
+  margin: 1rem;
+}
+
+@mixin card-item-inner {
+  padding: 3rem 0;
+  min-height: 13rem;
+  margin: auto;
+  text-align: center;
+  color: $text-color;
+  background-color: $block-background;
+  border-radius: 5px;
+  animation: all 2s ease-in-out;
+}
+
+@mixin button {
+  margin: 1rem;
+  background-color: $button-background;
+  border: none;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  outline: none;
+  color: $text-color;
+  font-family: 'Lato';
+  font-size: 1.6rem;  
+
+  a {
+    color: $text-color;
+  }
+
+  &:hover {
+    background-color: $text-color;
+    color: $button-background;
+    border: 1px solid $button-background;
+
+    & a {
+      color: $button-background;
+     }
+  }   
+}

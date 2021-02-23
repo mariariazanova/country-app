@@ -1,0 +1,39 @@
+@import '../../variables.scss';
+@import '../../mixins.scss';
+
+.container {
+  margin: 0 auto;
+  width: 40%;
+  }
+      
+  .country-detail {
+    text-align: left;
+
+    span {
+      color: $block-background-hover;
+      font-weight: bold;
+      border-radius: 5px;
+      width: 25rem;
+      display: inline-block;
+      text-align: left;
+    } 
+    
+    img {
+      width: 20rem;
+    }
+  }
+
+  .button-container {
+    margin: 0 auto;
+    text-align: center;
+
+    button {
+      @include button;   
+    }    
+  }  
+     
+  @media (max-width: 40rem) {
+    .container {
+      width: 70%;
+    }
+  }

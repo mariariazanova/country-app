@@ -1,0 +1,5 @@
+<div class="container">
+    <h4>You're going to edit some information about {{country?.name}}</h4>
+    <app-form [initialValue]="value" [inputTitle]="fieldTitle" (formGroupChange)="formGroupChangeEvent($event)"></app-form>
+    <p>We'll be glad to see you soon!</p>
+</div>
