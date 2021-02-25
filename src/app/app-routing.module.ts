@@ -1,10 +1,11 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { AllCountriesComponent } from './all-countries/all-countries.component';
 import { CountryDetailComponent } from './country-detail/country-detail.component';
 import { EditCountryDetailComponent } from './edit-country-detail/edit-country-detail.component';
+import { TableComponent } from './table/table.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'detail/:name', component: CountryDetailComponent },
   { path: 'all-countries', component: AllCountriesComponent },
   { path: 'detail/:name/edit', component: EditCountryDetailComponent },
+  { path: 'all-countries/table', component: TableComponent },
 ];
 
 @NgModule({

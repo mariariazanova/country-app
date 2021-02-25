@@ -1,5 +1,6 @@
 <div class="container">
   <h2>List of all the countries in our database</h2>
+  <a routerLink="/all-countries/table"><button>Change view</button></a>
   <div class="country-cards-container">
     <a *ngFor="let country of countries" 
       class="country-card" routerLink="/detail/{{country.name}}">

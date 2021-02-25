@@ -26,9 +26,10 @@
         <span>{{fieldHappinessIndexTitle}} </span>{{country.happinessIndex}}
       </p>
     </div>
+    <app-map [latitude]="country.latLang[0]" [longitude]="country.latLang[1]"></app-map>
     <div class="button-container">   
       <button (click)="goBack()">Go back</button>
-      <button><a routerLink="/detail/{{country.name}}/edit">Edit info about {{country.name}}</a></button>
+      <a routerLink="/detail/{{country.name}}/edit"><button>Edit info about {{country.name}}</button></a>
     </div>
   </div>
 </div>

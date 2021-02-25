@@ -17,7 +17,7 @@ export class EditCountryDetailComponent {
   constructor(private countryService: CountriesInfoService, private location: Location) {}
 
   country: Country | null = this.countryService.country;
-  value: number = this.countryService.value;
+  value = Number(localStorage.getItem(`${this.countryService.country?.name}`));
   fieldTitle: string = Titles.HappinessIndexInputTitle;
 
   formGroupChangeEvent(value: any) {
@@ -26,6 +26,10 @@ export class EditCountryDetailComponent {
       this.countryService.additionalCountryInfo[
         this.countryService.country.name
       ] = this.countryService.value;
+      localStorage.setItem(
+        `${this.countryService.country.name}`,
+        this.countryService.value.toString(),
+      );
     }
   }
 }

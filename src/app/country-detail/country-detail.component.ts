@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -28,6 +28,7 @@ export class CountryDetailComponent implements OnInit {
       this.countries = result;
       this.setCountry();
       this.setInputValue();
+      this.setLocalStorageValue();
     });
   }
 
@@ -42,6 +43,16 @@ export class CountryDetailComponent implements OnInit {
       this.countryService.getInputValue();
       this.country.happinessIndex = this.countryService.value;
 
+      if (this.country.happinessIndex) {
+        this.fieldHappinessIndexTitle = Titles.HappinessIndexInputTitle + ':';
+      }
+    }
+  }
+
+  setLocalStorageValue() {
+    const localStotageValue = localStorage.getItem(`${this.countryService.country?.name}`);
+    if (this.country && localStotageValue) {
+      this.country.happinessIndex = Number(localStotageValue);
       if (this.country.happinessIndex) {
         this.fieldHappinessIndexTitle = Titles.HappinessIndexInputTitle + ':';
       }

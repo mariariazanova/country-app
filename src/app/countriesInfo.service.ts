@@ -31,6 +31,7 @@ export class CountriesInfoService {
             gini: country.gini,
             flag: country.flag,
             language: this.getDataFromObject(country.languages, 'language'),
+            latLang: country.latlng,
           };
         });
       }),

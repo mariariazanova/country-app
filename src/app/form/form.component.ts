@@ -28,7 +28,7 @@ export class FormComponent implements OnInit {
     if (inputValue) {
       this.formGroupChange.emit(inputValue.value);
     }
-    this.location.back();
+    this.goBack();
   }
 
   goBack(): void {
