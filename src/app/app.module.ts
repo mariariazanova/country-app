@@ -16,6 +16,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { CommonModule } from '@angular/common';
 import { MapComponent } from './map/map.component';
 import { TableComponent } from './table/table.component';
+import { SearchPipe } from './shared/search.pipe';
+import { FindlevelPipe } from './shared/findLevel.pipe';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { TableComponent } from './table/table.component';
     EditCountryDetailComponent,
     MapComponent,
     TableComponent,
+    SearchPipe,
+    FindlevelPipe,
   ],
   imports: [
     FormsModule,

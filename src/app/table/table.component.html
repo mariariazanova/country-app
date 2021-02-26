@@ -1,10 +1,10 @@
 <div class="container">
   <h2>List of all the countries in our database</h2>
   <a routerLink="/all-countries"><button>Change view</button></a>
-  <input [(ngModel)] = "searchTerm" (ngModelChange) = "search()" placeholder="Enter country name"/>
+  <input [(ngModel)] = "searchTerm" placeholder="Enter country name"/>
   <table class="country-table-container">
     <tr><th>Country name (capital)</th></tr> 
-    <a *ngFor="let country of filteredCountries" class="country-line" routerLink="/detail/{{country.name}}">
+    <a *ngFor="let country of countries | search: searchTerm" class="country-line" routerLink="/detail/{{country.name}}">
       <tr >
         <td class="inner2">       
           <span>{{country.name}}</span>

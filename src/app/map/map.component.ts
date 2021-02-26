@@ -1,6 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { NodeCompatibleEventEmitter } from 'rxjs/internal/observable/fromEvent';
-import { Country } from '../country';
 
 @Component({
   selector: 'app-map',

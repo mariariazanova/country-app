@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { Country } from '../country';
 import { CountriesInfoService } from '../countriesInfo.service';
@@ -11,12 +10,13 @@ import { CountriesInfoService } from '../countriesInfo.service';
 })
 export class AllCountriesComponent implements OnInit {
   countries: Country[];
+  searchTerm: string;
 
   constructor(private countryService: CountriesInfoService) {}
 
   ngOnInit(): void {
-    this.countryService
-      .getCountriesInfo()
-      .subscribe((countries: Country[] = []) => (this.countries = countries));
+    this.countryService.getCountriesInfo().subscribe((countries: Country[] = []) => {
+      this.countries = countries;
+    });
   }
 }
