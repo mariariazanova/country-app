@@ -10,4 +10,5 @@ export class Country {
   flag: string;
   language: string;
   happinessIndex?: number;
+  latLang: number[];
 }

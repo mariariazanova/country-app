@@ -1,8 +1,19 @@
 @import '../../variables.scss';
 @import '../../mixins.scss';
 
+button {
+  @include button;
+}
+
+input {
+  font-size: 1.6rem;
+  padding: 1rem;
+  max-width: 26rem;
+}
+
 .country-cards-container {
   @include flex-center;
+  margin: 2rem auto 0 auto;
   }  
 
   .country-card {
@@ -25,4 +36,4 @@
     h4 {
       @include h4-in-block;
     }
-  }
+  }  

@@ -1,7 +1,9 @@
 <div class="container">
   <h2>List of all the countries in our database</h2>
+  <a routerLink="/all-countries/table"><button>Change view</button></a>
+  <input [(ngModel)] = "searchTerm" placeholder="Enter country name"/>
   <div class="country-cards-container">
-    <a *ngFor="let country of countries" 
+    <a *ngFor="let country of countries | search: searchTerm" 
       class="country-card" routerLink="/detail/{{country.name}}">
       <div class="inner">
         <h4>{{country.name}}</h4>

@@ -4,11 +4,11 @@ import { Country } from '../country';
 import { CountriesInfoService } from '../countriesInfo.service';
 
 @Component({
-  selector: 'app-all-countries',
-  templateUrl: './all-countries.component.html',
-  styleUrls: ['./all-countries.component.scss'],
+  selector: 'app-table',
+  templateUrl: './table.component.html',
+  styleUrls: ['./table.component.scss'],
 })
-export class AllCountriesComponent implements OnInit {
+export class TableComponent implements OnInit {
   countries: Country[];
   searchTerm: string;
 

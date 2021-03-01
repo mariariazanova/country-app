@@ -1,34 +1,74 @@
+<ng-template 
+  let-title="title"
+  let-value="value"
+  let-measurement="measurement"
+  #countryInfoBlock>
+  <p >
+    <span>{{title}}: </span>{{value}} {{measurement}} ({{ countries | findLevel: country : title }} th)
+  </p>
+</ng-template>
+
 <div class="container">
-  <div *ngIf="country">
-    <h2>{{ country.name | uppercase }}</h2>
+  <div *ngIf="country!">
+    <h2>{{country!.name | uppercase}}</h2>
     <div class="country-detail">
-      <p *ngIf="country.capital">
-        <span>Capital: </span>{{country.capital}}</p>
-      <p *ngIf="country.area">
-        <span>Area: </span>{{country.area | number}} km<sup>2</sup>
-      </p>
-      <p *ngIf="country.populaton">
-        <span>Population: </span>{{country.population | number}}
-      </p>
-      <p *ngIf="country.gini">
-        <span>Gini index: </span>{{country.gini}}
-      </p>
-      <p>
-        <span>Currency: </span>{{country.currency}}
-      </p>
-      <p>
-        <span>Languages: </span>{{country.language}}
-      </p>
+      <ng-container *ngIf="country.capital" [ngTemplateOutlet]="countryInfoBlock"
+      [ngTemplateOutletContext]="{
+        title: 'Capital', 
+        value: country?.capital, 
+        measurement: ''
+      }">
+      </ng-container>
+      <ng-container *ngIf="country.area" [ngTemplateOutlet]="countryInfoBlock"
+      [ngTemplateOutletContext]="{
+        title: 'area', 
+        value: country?.area | number, 
+        measurement: 'km2'
+      }">
+      </ng-container>
+      <ng-container *ngIf="country.population" [ngTemplateOutlet]="countryInfoBlock"
+      [ngTemplateOutletContext]="{
+        title: 'population', 
+        value: country?.population | number, 
+        measurement: 'people'
+      }">
+      </ng-container>
+      <ng-container *ngIf="country.gini" [ngTemplateOutlet]="countryInfoBlock"
+      [ngTemplateOutletContext]="{
+        title: 'Gini index', 
+        value: country?.gini, 
+        measurement: ''
+      }">
+      </ng-container>
+      <ng-container *ngIf="country.currency" [ngTemplateOutlet]="countryInfoBlock"
+      [ngTemplateOutletContext]="{
+        title: 'Currency', 
+        value: country?.currency, 
+        measurement: ''
+      }">
+      </ng-container>
+      <ng-container *ngIf="country.language" [ngTemplateOutlet]="countryInfoBlock"
+      [ngTemplateOutletContext]="{
+        title: 'Languages', 
+        value: country?.language, 
+        measurement: ''
+      }">
+      </ng-container>
       <p>
         <span>Flag: </span><img src='{{country.flag}}'>
-      </p>   
-      <p *ngIf="country.happinessIndex">
-        <span>{{fieldHappinessIndexTitle}} </span>{{country.happinessIndex}}
-      </p>
+      </p>  
+      <ng-container *ngIf="country.happinessIndex" [ngTemplateOutlet]="countryInfoBlock"
+      [ngTemplateOutletContext]="{
+        title: fieldHappinessIndexTitle, 
+        value: country?.happinessIndex, 
+        measurement: ''
+      }"> 
+      </ng-container>
     </div>
+    <app-map [latitude]="country.latLang[0]" [longitude]="country.latLang[1]"></app-map>
     <div class="button-container">   
       <button (click)="goBack()">Go back</button>
-      <button><a routerLink="/detail/{{country.name}}/edit">Edit info about {{country.name}}</a></button>
+      <a routerLink="/detail/{{country.name}}/edit"><button>Edit info about {{country.name}}</button></a>
     </div>
   </div>
 </div>
